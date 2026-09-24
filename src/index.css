@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", serif;
+  --font-sans: "Outfit", sans-serif;
+
+  --color-sand-50: #fbf6ec;
+  --color-sand-100: #f6ecd9;
+  --color-sand-200: #ecd9b8;
+
+  --color-clay-400: #d98a5a;
+  --color-clay-500: #c75d2c;
+  --color-clay-600: #a8481e;
+  --color-clay-700: #7e3415;
+
+  --color-olive-500: #6b7a3a;
+  --color-olive-700: #4a5526;
+
+  --color-sea-400: #3aa6a0;
+  --color-sea-600: #1f6f73;
+  --color-sea-900: #0d3b42;
+
+  --color-saffron-400: #e8a93a;
+  --color-saffron-500: #d98e1f;
+
+  --font-weight-300: 300;
+  --font-weight-400: 400;
+  --font-weight-500: 500;
+  --font-weight-600: 600;
+  --font-weight-700: 700;
+  --font-weight-900: 900;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--color-sand-50);
+  color: #3a2c1e;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(34px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.animate-floaty {
+  animation: floaty 6s ease-in-out infinite;
+}
+
+@keyframes slow-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.12); }
+}
+
+.animate-slow-zoom {
+  animation: slow-zoom 18s ease-in-out alternate infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-sand-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-clay-400);
+  border-radius: 9999px;
+}
